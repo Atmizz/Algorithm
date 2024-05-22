@@ -1,0 +1,47 @@
+[
+	{
+		"correct_answers":
+		[
+			"012"
+		],
+		"test": "210 111\n"
+	},
+	{
+		"correct_answers":
+		[
+			"021"
+		],
+		"test": "210 222\n"
+	},
+	{
+		"correct_answers":
+		[
+			"101"
+		],
+		"test": "111 111\n"
+	},
+	{
+		"correct_answers":
+		[
+			"013"
+		],
+		"test": "122 200\n"
+	},
+	{
+		"correct_answers":
+		[
+			"002"
+		],
+		"test": "111 221\n"
+	},
+	{
+		"correct_answers":
+		[
+			"003"
+		],
+		"test": "210 100\n"
+	},
+	{
+		"test": "\n021 000\n"
+	}
+]

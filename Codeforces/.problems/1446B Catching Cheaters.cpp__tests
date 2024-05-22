@@ -1,0 +1,26 @@
+[
+	{
+		"correct_answers":
+		[
+			"5"
+		],
+		"test": "4 5\nabba\nbabab\n"
+	},
+	{
+		"correct_answers":
+		[
+			"12"
+		],
+		"test": "8 10\nbbbbabab\nbbbabaaaaa\n"
+	},
+	{
+		"correct_answers":
+		[
+			"0"
+		],
+		"test": "7 7\nuiibwws\nqhtkxcn\n"
+	},
+	{
+		"test": "3 4\naaa\nbaaa\n"
+	}
+]

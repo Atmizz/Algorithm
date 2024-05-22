@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"cat\neh\nloops"
+		],
+		"test": "dog ogday\ncat atcay\npig igpay\nfroot ootfray\nloops oopslay\n\natcay\nittenkay\noopslay\n\n"
+	}
+]

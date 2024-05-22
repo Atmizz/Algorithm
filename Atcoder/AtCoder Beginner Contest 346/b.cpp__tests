@@ -1,0 +1,37 @@
+[
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "3 2\n"
+	},
+	{
+		"correct_answers":
+		[
+			"No"
+		],
+		"test": "3 0\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "92 66\n"
+	},
+	{
+		"correct_answers":
+		[
+			"No"
+		],
+		"test": "0 0\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Yes"
+		],
+		"test": "0 1\n"
+	}
+]

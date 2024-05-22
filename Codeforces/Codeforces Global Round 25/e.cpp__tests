@@ -1,0 +1,12 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES\n1\nsinktheyacht\nNO\nYES\n2\nuw uowouwu"
+		],
+		"test": "3\nsinktheyacht\nlllllllll\nuwuowouwu\n"
+	},
+	{
+		"test": "1\nlllalll\n"
+	}
+]

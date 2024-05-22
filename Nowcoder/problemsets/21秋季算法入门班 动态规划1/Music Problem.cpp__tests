@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"NO\nYES\nYES"
+		],
+		"test": "3\n3\n2000 1000 3000\n3\n2000 3000 1600\n2\n5400 1800\n"
+	},
+	{
+		"correct_answers":
+		[
+			"YES"
+		],
+		"test": "1\n1\n3600\n"
+	},
+	{
+		"correct_answers":
+		[
+			"NO"
+		],
+		"test": "1\n1\n3601\n"
+	}
+]

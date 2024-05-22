@@ -1,0 +1,8 @@
+[
+	{
+		"test": "ABABABC\nABCABBAABABCABB\n"
+	},
+	{
+		"test": "ABABABC\nABA\n"
+	}
+]

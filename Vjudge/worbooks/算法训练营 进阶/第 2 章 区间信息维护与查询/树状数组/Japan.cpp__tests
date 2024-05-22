@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"Test case 1: 5"
+		],
+		"test": "1\n3 4 4\n1 4\n2 3\n3 2\n3 1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Test case 1: 5\nTest case 2: 5\nTest case 3: 5"
+		],
+		"test": "3\n3 4 4\n1 4\n2 3\n3 2\n3 1\n3 4 4\n1 4\n2 3\n3 2\n3 1\n3 4 4\n1 4\n2 3\n3 2\n3 1\n"
+	}
+]

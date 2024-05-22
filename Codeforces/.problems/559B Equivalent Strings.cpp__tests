@@ -1,0 +1,16 @@
+[
+	{
+		"correct_answers":
+		[
+			"YES"
+		],
+		"test": "aaba\nabaa\n"
+	},
+	{
+		"correct_answers":
+		[
+			"NO"
+		],
+		"test": "aabb\nabab\n"
+	}
+]

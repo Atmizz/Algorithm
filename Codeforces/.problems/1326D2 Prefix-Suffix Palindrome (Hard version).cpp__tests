@@ -1,0 +1,39 @@
+[
+	{
+		"correct_answers":
+		[
+			"a\nabcdfdcba\nxyzyx\ns\nabba",
+			"a\nabcdfdcba\nxyzyx\nc\nabba"
+		],
+		"test": "5\na\nabcdfdcecba\nabbaxyzyx\ncodeforces\nacbba\n"
+	},
+	{
+		"correct_answers":
+		[
+			"swpzzpws\nz\nqfnkepcpeknfq\nd\nuu\npodpncnpdop",
+			"swpzzpws\nm\nqfnkepcpeknfq\ni\nuu\npodpncnpdop"
+		],
+		"test": "6\nswpzzpwnoshs\nzehcrm\nqfnkepcpeykknfq\ndgi\nuu\npodpncnpdjrkuwzdfhfodkzdnasyjciweqop\n"
+	},
+	{
+		"correct_answers":
+		[
+			"a"
+		],
+		"test": "1\nabvab\n"
+	},
+	{
+		"correct_answers":
+		[
+			"sss"
+		],
+		"test": "1\nsssvmb\n"
+	},
+	{
+		"correct_answers":
+		[
+			"zzzzz\nz\nf\nauua\nh\nk\nb\no\nm\notto\nryr\nb\nocnnco\nx\nh\nq\nee\nz\nx\nv\nz\ni\nklk\nf\njlj\nmllm\nh\nqpq\nn\nw\nnen\njdzdj\nuzarazu\nd\ny\na\nt\nskepnivvinpeks\nz\nsaetxxteas\ng\nc\nmcm\nff\nd\nn\nqbniooinbq\npp\no\nm\nzaaz\ng\naa\ng\nimtmllmtmi\nk\nkk\nuu\nd\noo\nsbs\no\nee\nluul\nu\nk\ncc\nb\nydy\nc\niwwi\ntot\nw\nsss"
+		],
+		"test": "74\nzzzzzhi\nzy\nfqcfj\nauua\nhw\nky\nbh\noj\nmx\notto\nxfryr\nbmd\nozcnnco\nxhazmqxm\nhr\nqw\neet\nzs\nxkihu\nvuz\nzhp\nirlpu\nkltk\nfk\njlj\nmllm\nhe\nqpmmxtq\nna\nweaf\nnepljxrn\njdzdmzj\nuzarazuqu\ndu\ny\na\nta\nacbykskepnivvinpeks\nz\nsaetxxteas\ngz\nc\nmcim\nff\ndceblg\nn\nqabniooinbq\npp\no\nmh\nzaaz\ngvh\naa\ngkemix\nimtmllsicfmtmi\nkxil\nkk\nouu\ndl\nboo\nsbsf\nojbzm\neep\nluul\nufdp\nk\ncc\nbs\nyduy\ncuibwmzxokxyr\niwwbvhli\ntont\nw\nsssvmb\n"
+	}
+]

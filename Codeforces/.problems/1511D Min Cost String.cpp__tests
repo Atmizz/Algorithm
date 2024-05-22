@@ -1,0 +1,36 @@
+[
+	{
+		"correct_answers":
+		[
+			"aabbccdda",
+			"abacadbcb",
+			"abacadaab"
+		],
+		"test": "9 4\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aaaaa"
+		],
+		"test": "5 1\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aabbccddee",
+			"abacadaeaf"
+		],
+		"test": "10 26\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aabbaabbaabbaabbaabbaabbaabbaabb"
+		],
+		"test": "32 2\n"
+	},
+	{
+		"test": "9 3 \n"
+	}
+]

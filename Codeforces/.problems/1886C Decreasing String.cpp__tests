@@ -1,0 +1,32 @@
+[
+	{
+		"correct_answers":
+		[
+			"abx",
+			"abxa",
+			"abxb"
+		],
+		"test": "4\ncab\n6\nabcd\n9\nx\n1\ncba\n5\n"
+	},
+	{
+		"correct_answers":
+		[
+			"a"
+		],
+		"test": "1\ncba\n6\n"
+	},
+	{
+		"correct_answers":
+		[
+			"a"
+		],
+		"test": "1\nabcba\n12\n",
+		"uncorrect_answers":
+		[
+			"b"
+		]
+	},
+	{
+		"test": "1\nthbwji\n11\n"
+	}
+]

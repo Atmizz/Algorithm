@@ -1,0 +1,30 @@
+[
+	{
+		"correct_answers":
+		[
+			"bcdefghijklmnopqrsatuvwxyz"
+		],
+		"test": "3\nrivest\nshamir\nadleman\n"
+	},
+	{
+		"correct_answers":
+		[
+			"Impossible"
+		],
+		"test": "10\ntourist\npetr\nwjmzbmr\nyeputons\nvepifanov\nscottwu\noooooooooooooooo\nsubscriber\nrowdark\ntankengineer\n"
+	},
+	{
+		"correct_answers":
+		[
+			"aghjlnopefikdmbcqrstuvwxyz"
+		],
+		"test": "10\npetr\negor\nendagorion\nfeferivan\nilovetanyaromanova\nkostka\ndmitriyh\nmaratsnowbear\nbredorjaguarturnik\ncgyforever\n"
+	},
+	{
+		"correct_answers":
+		[
+			"acbdefhijklmnogpqrstuvwxyz"
+		],
+		"test": "7\ncar\ncare\ncareful\ncarefully\nbecarefuldontforgetsomething\notherwiseyouwillbehacked\ngoodluck\n"
+	}
+]

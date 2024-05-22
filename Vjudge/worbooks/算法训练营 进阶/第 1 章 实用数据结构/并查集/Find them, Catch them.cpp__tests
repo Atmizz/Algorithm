@@ -1,0 +1,9 @@
+[
+	{
+		"correct_answers":
+		[
+			"Not sure yet.\nIn different gangs.\nIn the same gang."
+		],
+		"test": "1\n5 5\nA 1 2\nD 1 2\nA 1 2\nD 2 4\nA 1 4\n\n\n\n\n\n\n\n\n"
+	}
+]
