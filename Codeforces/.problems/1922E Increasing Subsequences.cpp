@@ -33,22 +33,24 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
-	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
+	i64 X;
+	std :: cin >> X;
+	std :: vector <int> ans;
+	int LOG = std :: __lg(X);
+	// deb(LOG)
+	X -= (1LL << LOG);
+	int minn = -200, maxx = 200;
+	for(int i = 0; i < LOG; ++ i) {
+		if(X >> i & 1) {
+			ans.pb(maxx--);
 		}
-		sum += x;
+		ans.pb(minn++);
 	}
-	std :: cout << sz(q) << nl;
+	std :: cout << sz(ans) << nl;
+	for(auto &x : ans) {
+		std :: cout << x << ' ';
+	}
+	std :: cout << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

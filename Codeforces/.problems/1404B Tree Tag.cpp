@@ -31,24 +31,61 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-// const int N = ;
+const int N = 1e5 + 20;
+std :: vector <int> adj[N];
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	int n, a, b, da, db;
+	std :: cin >> n >> a >> b >> da >> db;
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+		adj[i].clear();
 	}
-	std :: cout << sz(q) << nl;
+	for(int i = 1; i < n; ++ i) {
+		int u, v;
+		std :: cin >> u >> v;
+		adj[u].pb(v);
+		adj[v].pb(u);
+	}
+	if(da * 2 >= db) {
+		std :: cout << "Alice\n";
+		return ;
+	}
+	std :: vector <int> dis(n+1);
+	auto dfs = [&](auto dfs, int u, int fa) -> void {
+		for(auto &v : adj[u]) {
+			if(v == fa) {
+				continue ;
+			}
+			dis[v] = dis[u] + 1;
+			dfs(dfs, v, u);
+		}
+	};
+	dfs(dfs, b, 0);
+	if(dis[a] <= da) {
+		std :: cout << "Alice\n";
+		return ;
+	}
+	int lgt = 0;
+	auto dfs2 = [&](auto dfs2, int u, int fa, int d) -> void {
+		lgt = max(lgt, d);
+		for(auto &v : adj[u]) {
+			if(v == fa) {
+				continue ;
+			}
+			dfs2(dfs2, v, u, d + 1);
+		}
+	};
+	int rt = 1;
+	for(int i = 1; i <= n; ++ i) {
+		if(dis[rt] < dis[i]) {
+			rt = i;
+		}
+	}
+	dfs2(dfs2, rt, rt, 0);
+	if(lgt <= da * 2) {
+		std :: cout << "Alice\n";
+		return ;
+	}
+	std :: cout << "Bob\n";
 }
 int main() {
 	//freopen("1.in", "r", stdin);

@@ -33,22 +33,19 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	int n;
+	std :: cin >> n;
+	std :: vector <int> a(n+1);
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+		std :: cin >> a[i];
 	}
-	std :: cout << sz(q) << nl;
+	std :: map < std :: vector <int>, int> cnt, cnt1, cnt2, cnt3;
+	i64 ans = 0;
+	for(int i = 1; i <= n - 2; ++ i) {
+		ans += (cnt1[{a[i+1], a[i+2]}] ++) + (cnt2[{a[i], a[i+2]}] ++) + (cnt3[{a[i], a[i+1]}] ++);
+		ans -= (cnt[{a[i], a[i+1], a[i+2]}] ++) * 3;
+	}
+	std :: cout << ans << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

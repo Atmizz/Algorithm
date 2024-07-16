@@ -33,22 +33,51 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	i64 n, l, r;
+	std :: cin >> n >> l >> r;
+	std :: vector <i64> a(n+1), sum(n+1);
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
+		a[i] = (n - i) * 2;
+		if(i == n) {
+			a[i] = 1;
 		}
-		sum += x;
+		sum[i] = sum[i-1] + a[i];
 	}
-	std :: cout << sz(q) << nl;
+	i64 st = -1, ed = -1;
+	for(int i = 1; i <= n; ++ i) {
+		if(sum[i] >= l) {
+			if(st == -1) {
+				st = i;
+			}
+		}
+		if(sum[i] >= r) {
+			if(ed == -1) {
+				ed = i;
+				break;
+			}
+		}
+	}
+	std :: vector <int> ans;
+	// std :: cout << st << ' ' << ed << nl;
+	for(int i = st; i <= ed; ++ i) {
+		if(i == ed && r == n * (n - 1) + 1) {
+			ans.pb(1);
+		}
+		for(int j = i + 1; j <= n; ++ j) {
+			ans.pb(i);
+			ans.pb(j);
+		}
+	}
+	// deb(sum[st])
+	st = sum[st-1] + 1;
+	// deb(st);
+	// deb(sz(ans))
+	for(int i = 0; i < sz(ans); ++ i) {
+		if(st + i >= l && st + i <= r) {
+			std :: cout << ans[i] << ' ';
+		}
+	}
+	std :: cout << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

@@ -33,22 +33,21 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
-	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+	int n, m, p;
+	std :: cin >> n >> m >> p;
+	if(n < m) {
+		std :: swap(n, m);
 	}
-	std :: cout << sz(q) << nl;
+	std :: vector <int> a(n+1), b(m+1);
+	for(int i = 1; i <= n; ++ i) {
+		std :: cin >> a[i];
+		a[i] %= p;
+	}
+	for(int j = 1; j <= m; ++ j) {
+		std :: cin >> b[j];
+		b[j] %= p;
+	}
+	
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +56,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }

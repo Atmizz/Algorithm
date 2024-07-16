@@ -32,23 +32,41 @@ const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
+int gcd(int a, int b) {
+	return b ? gcd(b, a % b) : a;
+}
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	int n;
+	std :: cin >> n;
+	std :: vector <int> g(n+1), a(n+1);
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+		std :: cin >> g[i];
 	}
-	std :: cout << sz(q) << nl;
+	for(int i = 1; i <= n; ++ i) {
+		if((n / g[i] < i) || gcd(g[i], g[i-1]) != g[i]) {
+			std :: cout << -1;
+			return ;
+		}
+	}
+	std :: map <int, int> mp;
+	a[1] = g[1];
+	mp[a[1]] = 1;
+	for(int i = 2; i <= n; ++ i) {
+		if(g[i] == g[i-1]) {
+			int tmp = a[i-1];
+			while(mp.count(tmp)) {
+				tmp += g[i];
+			}
+			a[i] = tmp;
+			mp[tmp] = 1;
+		} else {
+			a[i] = g[i];
+			mp[g[i]] = 1;
+		}
+	}
+	for(int i = 1; i <= n; ++ i) {
+		std :: cout << a[i] << ' ';
+	}
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +75,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }

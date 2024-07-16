@@ -33,22 +33,43 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
-	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
+	int n;
+	std :: cin >> n;
+	std :: vector <i64> a(n), cnt(60);
+	for(auto &x : a) {
+		std :: cin >> x;
+		for(int j = 0; j < 60; ++ j) {
+			cnt[j] += (x >> j & 1LL);
 		}
-		sum += x;
 	}
-	std :: cout << sz(q) << nl;
+	i64 ans = 0;
+	for(int i = 0; i < n; ++ i) {
+		i64 res1 = 0;
+		// for(int j = 0; j < n; ++ j) {
+		// 	res1 += (a[i] & a[j]);
+		// 	res1 %= Mod;
+		// }
+		for(int j = 0; j < 60; ++ j) {
+			if(a[i] >> j & 1LL) {
+				res1 = (res1 + ((1LL << j) % Mod) * cnt[j] % Mod) % Mod;
+			}
+		}
+		i64 res2 = 0;
+		// for(int j = 0; j < n; ++ j) {
+		// 	res2 += (a[i] | a[j]);
+		// 	res2 %= Mod;
+		// }
+		for(int j = 0; j < 60; ++ j) {
+			if(a[i] >> j & 1LL) {
+				res2 = (res2 + ((1LL << j) % Mod) * n % Mod) % Mod;
+			} else {
+				res2 = (res2 + ((1LL << j) % Mod) * cnt[j] % Mod) % Mod;
+			}
+		}
+		ans += (res1 * res2 % Mod);
+		ans %= Mod;
+	}
+	std :: cout << ans << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

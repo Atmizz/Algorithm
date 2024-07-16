@@ -31,24 +31,34 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-// const int N = ;
+const int N = 2020;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	int n, k;
+	std :: cin >> n >> k;
+	std :: vector <int> v(n+1), w(n+1);
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+		std :: cin >> v[i] >> w[i];
 	}
-	std :: cout << sz(q) << nl;
+	auto check = [&](i64 i) -> bool {
+		int vol = -1;
+		for(int j = 1; j <= n; ++ j) {
+			if((w[j] & i) == i) {
+				vol &= v[j];
+			}
+		}
+		if(vol != -1 && vol <= k) {
+			return true;
+		}
+		return false;
+	};
+	i64 ans = 0;
+	for(int i = 30; i >= 0; -- i) {
+		i64 tmp = ans | (1LL << i);
+		if(check(tmp)) {
+			ans = tmp;
+		}
+	}
+	std :: cout << ans;
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +67,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }

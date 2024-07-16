@@ -33,22 +33,46 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
-	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
+	int m, n;
+	std :: cin >> m >> n;
+	std :: vector p(m+1, std :: vector <int> (n+1));
+	for(int i = 1; i <= m; ++ i) {
+		for(int j = 1; j <= n; ++ j) {
+			std :: cin >> p[i][j];
 		}
-		sum += x;
 	}
-	std :: cout << sz(q) << nl;
+	auto check = [&](int x) -> bool {
+		std :: map <int, int> mp;
+		for(int i = 1; i <= n; ++ i) {
+			int cnt = 0;
+			for(int j = 1; j <= m; ++ j) {
+				if(p[j][i] >= x) {
+					cnt ++;
+					mp[j] ++;
+				}
+			}
+			if(cnt == 0) {
+				return false;
+			}
+		}
+		for(auto &[u, v] : mp) {
+			if(v >= 2) {
+				return true;
+			}
+		}
+		return false;
+	};
+	int l = 1, r = 1e9, ans;
+	while(l <= r) {
+		int mid = l + r >> 1;
+		if(check(mid)) {
+			ans = mid;
+			l = mid + 1;
+		} else {
+			r = mid - 1;
+		}
+	}
+	std :: cout << ans << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

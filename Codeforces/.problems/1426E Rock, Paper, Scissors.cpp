@@ -33,22 +33,30 @@ const double eps = 1e-6;
 const int Mod = 1e9 + 7;
 // const int N = ;
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
-	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+	int n, m = 3;
+	std :: cin >> n;
+	std :: vector <int> a(4), b(4);
+	for(int i = 1; i <= m; ++ i) {
+		std :: cin >> a[i];
 	}
-	std :: cout << sz(q) << nl;
+	for(int i = 1; i <= m; ++ i) {
+		std :: cin >> b[i];
+	}
+	int ans2 = min(a[1], b[2]) + min(a[2], b[3]) + min(a[3], b[1]);
+	int ans1 = 0;
+	auto get = [&](int x) -> int {
+		if(x == 0) {
+			return 3;
+		}
+		return x;
+	};
+	for(int i = 1; i <= 3; ++ i) {
+		if(a[i] > b[i] + b[get(i-1)]) {
+			ans1 = a[i] - b[i] - b[get(i-1)];
+			break;
+		}
+	}
+	std :: cout << ans1 << ' ' << ans2 << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +65,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }

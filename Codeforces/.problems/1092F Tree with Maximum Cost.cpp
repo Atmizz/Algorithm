@@ -31,24 +31,47 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-// const int N = ;
+const int N = 2e5 + 20;
+std :: vector <int> adj[N+1];
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	int n;
+	std :: cin >> n;
+	std :: vector <int> a(n+1);
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
-		}
-		sum += x;
+		std :: cin >> a[i];
 	}
-	std :: cout << sz(q) << nl;
+	std :: vector <i64> b(n+1);
+	for(int i = 1; i < n; ++ i) {
+		int u, v;
+		std :: cin >> u >> v;
+		adj[u].pb(v);
+		adj[v].pb(u);
+	}
+	auto dfs1 = [&](auto dfs1, int u, int fa, int dep) -> i64 {
+		b[u] = a[u];
+		i64 res = 1LL * a[u] * dep;
+		for(auto &v : adj[u]) {
+			if(v == fa) {
+				continue ;
+			}
+			res += dfs1(dfs1, v, u, dep + 1);
+			b[u] += b[v];
+		}
+		return res;
+	};
+	i64 ans;
+	auto dfs2 = [&](auto dfs2, int u, int fa, i64 res) -> void {
+		ans = max(ans, res);
+		for(auto &v : adj[u]) {
+			if(v == fa) {
+				continue ;
+			}
+			dfs2(dfs2, v, u, res + b[1] - b[v] * 2);
+		}
+	};
+	ans = dfs1(dfs1, 1, 1, 0);
+	dfs2(dfs2, 1, 1, ans);
+	std :: cout << ans;
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +80,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }

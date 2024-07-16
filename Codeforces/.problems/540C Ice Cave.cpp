@@ -31,24 +31,41 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-// const int N = ;
+const int N = 550;
+int n, m, r1, c1, r2, c2, vis[N][N];
+int xx[4] = {1, -1, 0, 0};
+int yy[4] = {0, 0, 1, -1};
+char g[N][N];
 void solve() {
-	int n, x;
-	std :: cin >> n >> x;
-	std :: priority_queue <int> q;
-	int sum = 0;
+	std :: cin >> n >> m;
 	for(int i = 1; i <= n; ++ i) {
-		int c;
-		std :: cin >> c;
-		sum -= c;
-		q.push(c);
-		if(sum < 0) {
-			sum += q.top();
-			q.pop();
+		for(int j = 1; j <= m; ++ j) {
+			std :: cin >> g[i][j];
+			vis[i][j] = (g[i][j] == 'X');
 		}
-		sum += x;
 	}
-	std :: cout << sz(q) << nl;
+	std :: cin >> r1 >> c1 >> r2 >> c2;
+	auto dfs = [&](auto dfs, int x, int y) -> void {
+		// std :: cout << x << ' ' << y << ' ' << vis[x][y] << nl;
+		for(int i = 0; i < 4; ++ i) {
+			int dx = x + xx[i];
+			int dy = y + yy[i];
+			if(dx < 1 || dx > n || dy < 1 || dy > m) {
+				continue ;
+			}
+			if(vis[dx][dy] == 1) {
+				if(dx == r2 && dy == c2) {
+					std :: cout << "YES";
+					exit(0);
+				}
+			} else {
+				vis[dx][dy] = 1;
+				dfs(dfs, dx, dy);
+			}
+		}
+	};
+	dfs(dfs, r1, c1);
+	std :: cout << "NO";
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -57,7 +74,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	std :: cin >> _; 
+	//std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }
