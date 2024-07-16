@@ -35,19 +35,21 @@ const int Mod = 1e9 + 7;
 void solve() {
 	int n, m, p;
 	std :: cin >> n >> m >> p;
-	if(n < m) {
-		std :: swap(n, m);
-	}
-	std :: vector <int> a(n+1), b(m+1);
-	for(int i = 1; i <= n; ++ i) {
+	std :: vector <int> a(n), b(m);
+	int x = -1, y = -1;
+	for(int i = 0; i < n; ++ i) {
 		std :: cin >> a[i];
-		a[i] %= p;
+		if(a[i] % p && x == -1) {
+			x = i;
+		} 
 	}
-	for(int j = 1; j <= m; ++ j) {
+	for(int j = 0; j < m; ++ j) {
 		std :: cin >> b[j];
-		b[j] %= p;
+		if(b[j] % p && y == -1) {
+			y = j;
+		}
 	}
-	
+	std :: cout << x + y;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

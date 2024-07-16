@@ -1,0 +1,23 @@
+[
+	{
+		"correct_answers":
+		[
+			"5"
+		],
+		"test": "10\na\nab\nabc\nabc\nabcd\nda\ndas\nsda\nhduyyds\ncaicaixmy\n"
+	},
+	{
+		"correct_answers":
+		[
+			"20"
+		],
+		"test": "20\nzj\nzje\nzjem\nzjemb\nzjembb\nz\nzj\nzje\nzjem\nzjemb\nzjembb\nz\nzj\nzje\nzjem\nzjemb\nzjembb\nz\nzj\nzje\n"
+	},
+	{
+		"correct_answers":
+		[
+			"1"
+		],
+		"test": "15\na\nb\nc\nd\ne\nf\ng\nh\ni\nj\nk\nl\no\np\nw\n"
+	}
+]

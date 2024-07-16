@@ -36,7 +36,74 @@ std :: vector <int> adj[N];
 void solve() {
 	int n, m;
 	std :: cin >> n >> m;
-	for()
+	std :: vector <int> pa(n+1), deg(n+1);
+	for(int i = 1; i <= n; ++ i) {
+		pa[i] = i;
+	}
+	for(int i = 1; i <= m; ++ i) {
+		int u, v;
+		std :: cin >> u >> v;
+		deg[u] ++; deg[v] ++;
+		adj[u].pb(v);
+		adj[v].pb(u);
+	}
+	int rt = 1;
+	for(int i = 1; i <= n; ++ i) {
+		if(deg[i] < deg[rt]) {
+			rt = i;
+		}
+	}
+	auto find = [&](auto find, int x) -> int {
+		return x == pa[x] ? x : pa[x] = find(find, pa[x]);
+	};
+	std :: set <int> s;
+	for(int i = 1; i <= n; ++ i) {
+		if(i != rt) {
+			s.insert(i);
+		}
+	}
+	for(auto &v : adj[rt]) {
+		s.erase(v);
+	}
+	for(auto &v : s) {
+		pa[v] = rt;
+	}
+	int ans = 0;
+	for(int i = 1; i <= n; ++ i) {
+		int j = find(find, i);
+		if(j == rt) {
+			continue ;
+		}
+		std :: vector <int> vis(n+1);
+		for(int k = 1; k <= n; ++ k) {
+			if(i != k) {
+				vis[k] = 1;
+			}
+		}
+		for(auto &v : adj[i]) {
+			vis[v] = 0;
+		}
+		int uu = find(find, i);
+		for(int k = 1; k <= n; ++ k) {
+			if(vis[k] == 0) {
+				continue ;
+			}
+			int vv = find(find, k);
+			if(vv != uu) {
+				pa[vv] = uu;
+			}
+		}
+	}
+	for(int i = 1; i <= n; ++ i) {
+		pa[i] = find(find, pa[i]);
+	}
+	std :: sort(pa.begin() + 1, pa.end());
+	for(int i = 2; i <= n; ++ i) {
+		if(pa[i] != pa[i-1]) {
+			ans ++;
+		}
+	}
+	std :: cout << ans << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);
