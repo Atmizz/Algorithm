@@ -31,27 +31,46 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-const int N = 1010;
-int n, m, q, deg[N][N][4];
-int ans[N][N][4];
-// 表示i，j这个位置射出的方向
-char g[N][N];
-// 0上 1下 2左 3右
-void solve() {
-	std :: cin >> n >> m;
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			std :: cin >> g[i][j];
+const int N = 5e5 + 20;
+int n;
+ull a[N], ans[N];
+std :: vector <int> adj[N], vec[N];
+void dfs(int u, int fa) {
+	int rt = u;
+	for(int &v : adj[u]) {
+		if(v == fa) {
+			continue ;
+		}
+		dfs(v, u);
+		if(sz(vec[v]) > sz(vec[u])) {
+			rt = v;
+			vec[u] = vec[v];
 		}
 	}
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			for(int k = 0; k < 4; ++ k) {
-				
+	for(auto &v : adj[u]) {
+		if(v == fa) {
+			continue ;
+		}
+		if(v != rt) {
+			for(auto &x : vec[v]) {
+				vec[u].pb(x);
 			}
 		}
 	}
-	std :: cin >> q;
+	for(auto &v : adj[u]) {}
+}
+void solve() {
+	std :: cin >> n;
+	for(int i = 1; i < n; ++ i) {
+		int u, v;
+		std :: cin >> u >> v;
+		adj[u].pb(v);
+		adj[v].pb(u);
+	}
+	for(int i = 1; i <= n; ++ i) {
+		std :: cin >> a[i];
+	}
+	dfs(1, 1);
 }
 int main() {
 	//freopen("1.in", "r", stdin);

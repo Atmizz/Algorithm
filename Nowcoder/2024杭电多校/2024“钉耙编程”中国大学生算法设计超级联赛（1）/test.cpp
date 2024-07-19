@@ -31,27 +31,13 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-const int N = 1010;
-int n, m, q, deg[N][N][4];
-int ans[N][N][4];
-// 表示i，j这个位置射出的方向
-char g[N][N];
-// 0上 1下 2左 3右
+// const int N = ;
 void solve() {
-	std :: cin >> n >> m;
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			std :: cin >> g[i][j];
-		}
-	}
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			for(int k = 0; k < 4; ++ k) {
-				
-			}
-		}
-	}
-	std :: cin >> q;
+	std :: set <int> s;
+	s.insert(1);
+	s.insert(2);
+	s.insert(3);
+	std :: cout << (*s.lower_bound(2));
 }
 int main() {
 	//freopen("1.in", "r", stdin);

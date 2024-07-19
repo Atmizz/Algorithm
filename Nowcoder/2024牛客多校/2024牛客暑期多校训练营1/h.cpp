@@ -31,27 +31,51 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-const int N = 1010;
-int n, m, q, deg[N][N][4];
-int ans[N][N][4];
-// 表示i，j这个位置射出的方向
-char g[N][N];
-// 0上 1下 2左 3右
+const int N = 1e5 + 20;
+struct Node {
+	std :: string s;
+	int t, p;
+	friend bool operator < (Node a, Node b) {
+		return a.t == b.t ? a.p < b.p : a.t > b.t;
+	}
+}a[N], b[N];
 void solve() {
-	std :: cin >> n >> m;
+	int n, m;
+	std :: cin >> n;
+	std :: map <std :: string, int> mp;
 	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			std :: cin >> g[i][j];
+		std :: cin >> a[i].s >> a[i].t >> a[i].p;
+		mp[a[i].s] ++;
+	}
+	std :: cin >> m;
+	for(int i = 1; i <= m; ++ i) {
+		std :: cin >> b[i].s >> b[i].t >> b[i].p;
+		mp[b[i].s] ++;
+	}
+	std :: sort(a + 1, a + 1 + n);
+	std :: sort(b + 1, b + 1 + m);
+	int ans = INF;
+	int cnt = 0;
+	for(int i = 1; i <= n; ++ i) {
+		if(a[i].s == "lzr010506") {
+			break;
+		}
+		if(mp[a[i].s] == 1) {
+			cnt ++;
 		}
 	}
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			for(int k = 0; k < 4; ++ k) {
-				
-			}
+	ans = min(ans, cnt);
+	cnt = 0;
+	for(int i = 1; i <= m; ++ i) {
+		if(b[i].s == "lzr010506") {
+			break;
+		}
+		if(mp[b[i].s] == 1) {
+			cnt ++;
 		}
 	}
-	std :: cin >> q;
+	ans = min(ans, cnt);
+	std :: cout << ans + 1;
 }
 int main() {
 	//freopen("1.in", "r", stdin);

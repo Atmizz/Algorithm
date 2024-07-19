@@ -31,27 +31,35 @@ const i64 LLINF = 0x3f3f3f3f3f3f3f3f;
 const int Range = 1e9;
 const double eps = 1e-6;
 const int Mod = 1e9 + 7;
-const int N = 1010;
-int n, m, q, deg[N][N][4];
-int ans[N][N][4];
-// 表示i，j这个位置射出的方向
-char g[N][N];
-// 0上 1下 2左 3右
+// const int N = ;
 void solve() {
-	std :: cin >> n >> m;
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			std :: cin >> g[i][j];
+	// int cnt0 = 0, cnt1 = 0;
+	// for(int i = 0; i <= 1; ++ i) {
+	// 	for(int j = 0; j <= 1; ++ j) {
+	// 		for(int k = 0; k <= 1; ++ k) {
+	// 			for(int h = 0; h <= 1; ++ h) {
+	// 				int ans = i & j ^ k | h;
+	// 				if(ans == 0) {
+	// 					cnt0 ++;
+	// 				} else {
+	// 					cnt1 ++;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	// std :: cout << cnt0 << ' ' << cnt1;
+	i64 ans = 1;
+	int n, k;
+	std :: cin >> n >> k;
+	for(int i = 0; i < k; ++ i) {
+		if(n >> i & 1) {
+			ans *= 12;
+		} else {
+			ans *= 4;
 		}
 	}
-	for(int i = 1; i <= n; ++ i) {
-		for(int j = 1; j <= m; ++ j) {
-			for(int k = 0; k < 4; ++ k) {
-				
-			}
-		}
-	}
-	std :: cin >> q;
+	std :: cout << ans << nl;
 }
 int main() {
 	//freopen("1.in", "r", stdin);
@@ -60,7 +68,7 @@ int main() {
 	std :: cin.tie(0);
 	std :: cout.tie(0);
 	int _ = 1;
-	//std :: cin >> _; 
+	std :: cin >> _; 
 	while(_ --) solve();
 	return 0;
 }
