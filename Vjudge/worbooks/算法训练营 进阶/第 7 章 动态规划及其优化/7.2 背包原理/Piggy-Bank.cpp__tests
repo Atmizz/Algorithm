@@ -1,9 +1,0 @@
-[
-	{
-		"correct_answers":
-		[
-			"The minimum amount of money in the piggy-bank is -60.\nThe minimum amount of money in the piggy-bank is -100.\nThis is impossible."
-		],
-		"test": "3\n10 110\n2\n1 1\n30 50\n10 110\n2\n1 1\n50 30\n1 6\n2\n10 3\n20 4\n"
-	}
-]

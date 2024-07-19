@@ -1,9 +1,0 @@
-[
-	{
-		"test": "3 4\n",
-		"uncorrect_answers":
-		[
-			"abcd\nabce\nafcg"
-		]
-	}
-]
